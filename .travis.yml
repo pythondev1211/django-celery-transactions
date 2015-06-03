@@ -5,16 +5,22 @@ python:
   - "3.3"
   - "3.4"
 
+services: mysql
+
 env:
-  - DJANGO="django==1.7.6"
-  - DJANGO="django==1.6.10"
-  - DJANGO="django==1.5.12"
+  - DJANGO="django==1.8.2" DB="mysql"
+  - DJANGO="django==1.7.8" DB="mysql"
+  - DJANGO="django==1.6.10" DB="mysql"
 
 install:
   - pip install $DJANGO
-  - pip install celery==3.1.16
+  - pip install celery==3.1.18
   - pip install django-celery==3.1.16
   - pip install coveralls
+  - pip install mysqlclient
+
+before_script:
+  - mysql -e 'create database testdb;'
 
 script:
   - coverage run --source=djcelery_transactions runtests.py
