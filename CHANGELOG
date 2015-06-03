@@ -4,6 +4,16 @@ Changelog
 0.3.2 (unreleased)
 ------------------------
 
+- Drop support for Django 1.5. [Nicolas Grasset]
+
+- Travis test with MySQL backend. Fixes #7. [Nicolas Grasset]
+
+  #7 is not “fixed”, but if the tests pass, I’ll need more details about
+  the issue
+
+
+- Pkg 0.3.2 change log. [Nicolas Grasset]
+
 - Pkg: Drop test support for Django 1.5. [Nicolas Grasset]
 
 - Trigger tasks in inner savepoint commits. [Nicolas Grasset]
