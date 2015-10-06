@@ -1,8 +1,27 @@
 Changelog
 =========
 
+0.3.3 (2015-10-06)
+------------------------
+
+- TestCase support for Django 1.6 and 1.7. [Nicolas Grasset]
+
+- Nested transactions. Django 1.8 TestCase is different. [Nicolas
+  Grasset]
+
+- Check for nested transactions. [Nicolas Grasset]
+
+- Merge pull request #11 from frewsxcv/patch-2. [Nicolas Grasset]
+
+- Update CHANGELOG 0.3.2 release date. [Corey Farwell]
+
 0.3.2 (2015-06-03)
 ------------------
+
+- Merge pull request #10 from fellowshipofone/django-18. [Nicolas
+  Grasset]
+
+  Django 1.8 support
 
 - Drop support for Django 1.5. [Nicolas Grasset]
 
@@ -10,7 +29,6 @@ Changelog
 
   #7 is not “fixed”, but if the tests pass, I’ll need more details about
   the issue
-
 
 - Pkg 0.3.2 change log. [Nicolas Grasset]
 
@@ -23,7 +41,6 @@ Changelog
   2b704101ed90b0d6eebec0f0b8acc9ff1b617 by @sheats but I think it is
   cleaner this way, and it is required for new Django 1.8 tests since
   they are nested in atomic blocks
-
 
 - Django 1.8 extra not compatible with TransactionTestCase. [Nicolas
   Grasset]
@@ -94,18 +111,15 @@ Other
   	djcelery_transactions/__init__.py
   	tests/tests.py
 
-
 - Merge remote-tracking branch 'fellowshipofone/master' [Bryce]
 
   Conflicts:
   	djcelery_transactions/__init__.py
 
-
 - Merge remote-tracking branch '10to8/master' [Bryce]
 
   Conflicts:
   	djcelery_transactions/__init__.py
-
 
 - Merge remote-tracking branch 'fladi/asyncresult-not-returned' [U
   -CircleUp-Alpha\Bryce]
@@ -139,7 +153,6 @@ Other
 
   Conflicts:
   	djcelery_transactions/__init__.py
-
 
 - Looks like you only need djcelery to run tests, so install it if
   you're going to run tests.  But I'd rather not have it installed if we
@@ -187,7 +200,6 @@ Other
   	djcelery_transactions/__init__.py
   	djcelery_transactions/transaction_signals.py
 
-
 - Adding Batches subclass. [Nils Lundquist]
 
 - Celery 3.1 compatibility. [Jakub Paczkowski]
@@ -232,7 +244,6 @@ Other
 
   If transactions is not mark as dirty in case of rollback, celery queue is still consumed
 
-
 - Get rid of extra argument after_transaction passed to apply_async.
   [Nicolas Delaby]
 
@@ -243,7 +254,6 @@ Other
 - Be function signature agnostic. [Nicolas Delaby]
 
   Make sure we can follow any changes in transaction API
-
 
 - Assign and return in same time. [Nicolas Delaby]
 
