@@ -130,8 +130,9 @@ def _send_tasks(**kwargs):
     """
 
     # Detect test mode through CELERY_ALWAYS_EAGER settings
+    # We assume all celery transactions tests on 1.8+ are running with TestCase, otherwise we'd get atomic exceptions
     celery_eager = _get_celery_settings('CELERY_ALWAYS_EAGER')
-    min_number_transactions = 1 if celery_eager else 0
+    min_number_transactions = 1 if django.VERSION >= (1, 8) and celery_eager else 0
 
     # If we detect higher up nested atomic block, continue
     connection = get_connection()
