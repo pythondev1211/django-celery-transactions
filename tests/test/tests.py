@@ -124,3 +124,20 @@ class DjangoCeleryTestCase(TestCaseForTests):
         self.assertEqual( Plants.objects.count(), 1)
 
         Trees.objects.create(name='Grey Oak', plant=Plants.objects.get(name='Oak'))
+
+    def test_nested_atomic_blocks(self):
+        """Check that task is consumed only after last transaction
+        """
+
+        @atomic
+        def do_something():
+            my_task.delay()
+            self.assertIsNone(cache.get('my_global'))
+
+        @atomic
+        def do_something_outside():
+            do_something()
+            self.assertIsNone(cache.get('my_global'))
+
+        do_something_outside()
+        self.assertEqual(cache.get('my_global'), 42)

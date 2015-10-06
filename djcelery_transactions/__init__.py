@@ -129,8 +129,14 @@ def _send_tasks(**kwargs):
     management block in which no changes were made (effectively a commit).
     """
 
+    # Detect test mode through CELERY_ALWAYS_EAGER settings
     celery_eager = _get_celery_settings('CELERY_ALWAYS_EAGER')
+    min_number_transactions = 1 if celery_eager else 0
 
+    # If we detect higher up nested atomic block, continue
+    connection = get_connection()
+    if connection.in_atomic_block and len(connection.savepoint_ids) > min_number_transactions:
+        return
 
     queue = _get_task_queue()
     while queue:
