@@ -136,7 +136,7 @@ def _send_tasks(**kwargs):
 
     # If we detect higher up nested atomic block, continue
     connection = get_connection()
-    if connection.in_atomic_block and django.VERSION < (1, 8) or len(connection.savepoint_ids) > min_number_transactions:
+    if (connection.in_atomic_block and django.VERSION < (1, 8)) or len(connection.savepoint_ids) > min_number_transactions:
         return
 
     queue = _get_task_queue()
