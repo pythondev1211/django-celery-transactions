@@ -1,8 +1,14 @@
 Changelog
 =========
 
-0.3.4 (2015-10-06)
+0.3.5 (2015-10-07)
 ------------------------
+
+- Handle nested transactions differently to account for tests and live
+  code. [Nicolas Grasset]
+
+0.3.4 (2015-10-07)
+------------------
 
 - Fix nested condition. [Nicolas Grasset]
 
