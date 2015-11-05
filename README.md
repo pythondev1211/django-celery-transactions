@@ -10,6 +10,11 @@ django-celery-transactions holds on to Celery tasks until the current database
 transaction is committed, avoiding potential race conditions as described in
 Celery's [user guide][1]. Send tasks from signal handlers without fear!
 
+## Django and Celery coverage
+
+* Django 1.6, 1.7 and 1.8 are supported and tested. 1.9 will likely require refactoring.
+* Celery 3.0.x and 3.1.x are supported, but the tests are running with 3.1.18
+
 ## Features
 
 * If the transaction is rolled back, the tasks are discarded. Django's
