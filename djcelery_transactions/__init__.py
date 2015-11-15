@@ -3,7 +3,8 @@ from functools import partial
 import threading
 from celery import current_app
 
-from celery import task as base_task, current_app, Task
+from celery import current_app, Task
+from celery import task as base_task, shared_task as base_shared_task
 from celery.contrib.batches import Batches
 import django
 from django.conf import settings
@@ -148,8 +149,9 @@ def _send_tasks(**kwargs):
         tsk.original_apply_async(*args, **kwargs)
 
 
-# A replacement decorator.
+# Replacement decorators.
 task = partial(base_task, base=PostTransactionTask)
+shared_task = partial(base_shared_task, base=PostTransactionTask)
 
 # Hook the signal handlers up.
 transaction.signals.post_commit.connect(_send_tasks)
