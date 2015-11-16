@@ -1,6 +1,17 @@
 Changelog
 =========
 
+0.3.6 (2015-11-15)
+------------------------
+
+- Tests shared_task. [Nicolas Grasset]
+
+- Add a replacement shared_task decorator. [Zachary B. Mott]
+
+- Update Readme.md: Django and Celery coverage. [Nicolas Grasset]
+
+  Thanks @jakob-o for pointing this out!
+
 0.3.5 (2015-10-07)
 ------------------------
 

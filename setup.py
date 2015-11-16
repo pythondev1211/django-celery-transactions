@@ -7,7 +7,7 @@ from setuptools import setup, Command, find_packages
 
 setup(
     name="django-celery-transactions",
-    version="0.3.5",
+    version="0.3.6",
     description="Django transaction support for Celery tasks.",
     long_description="See https://github.com/fellowshipofone/django-celery-transactions",
     author="Nicolas Grasset",
